@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ibreeze@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="ibreeze">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="activiti-study"/>
+    <schema id="4" parent="1" name="cashflow"/>
+    <schema id="5" parent="1" name="flowable_study"/>
+    <schema id="6" parent="1" name="gmcfssc"/>
+    <schema id="7" parent="1" name="guns"/>
+    <schema id="8" parent="1" name="guns_flowable"/>
+    <schema id="9" parent="1" name="information_schema"/>
+    <schema id="10" parent="1" name="mybatis"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="sys"/>
+    <table id="14" parent="2" name="persistent_logins"/>
+    <table id="15" parent="2" name="sys_permission"/>
+    <table id="16" parent="2" name="sys_role"/>
+    <table id="17" parent="2" name="sys_role_permission"/>
+    <table id="18" parent="2" name="sys_user"/>
+    <table id="19" parent="2" name="sys_user_role"/>
+    <column id="20" parent="14" name="username">
+      <Position>1</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="14" name="series">
+      <Position>2</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="14" name="token">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="14" name="last_used">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="24" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>series</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="15" name="ID">
+      <Position>1</Position>
+      <Comment>编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="15" name="permission_NAME">
+      <Position>2</Position>
+      <Comment>菜单名称</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="27" parent="15" name="permission_url">
+      <Position>3</Position>
+      <Comment>菜单地址</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="28" parent="15" name="parent_id">
+      <Position>4</Position>
+      <Comment>父菜单id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="29" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="16" name="ID">
+      <Position>1</Position>
+      <Comment>编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="16" name="ROLE_NAME">
+      <Position>2</Position>
+      <Comment>角色名称</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="32" parent="16" name="ROLE_DESC">
+      <Position>3</Position>
+      <Comment>角色描述</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <key id="33" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="34" parent="17" name="RID">
+      <Position>1</Position>
+      <Comment>角色编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="17" name="PID">
+      <Position>2</Position>
+      <Comment>权限编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="17" name="FK_Reference_12">
+      <ColNames>PID</ColNames>
+    </index>
+    <key id="37" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RID
+PID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="17" name="FK_Reference_11">
+      <ColNames>RID</ColNames>
+      <RefSchemaName>ibreeze</RefSchemaName>
+      <RefTableName>sys_role</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="39" parent="17" name="FK_Reference_12">
+      <ColNames>PID</ColNames>
+      <RefSchemaName>ibreeze</RefSchemaName>
+      <RefTableName>sys_permission</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="40" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="18" name="username">
+      <Position>2</Position>
+      <Comment>用户名称</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="18" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="18" name="status">
+      <Position>4</Position>
+      <Comment>1开启0关闭</Comment>
+      <DataType>int(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="44" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="19" name="UID">
+      <Position>1</Position>
+      <Comment>用户编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="19" name="RID">
+      <Position>2</Position>
+      <Comment>角色编号</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="19" name="FK_Reference_10">
+      <ColNames>RID</ColNames>
+    </index>
+    <key id="48" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>UID
+RID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="19" name="FK_Reference_9">
+      <ColNames>UID</ColNames>
+      <RefSchemaName>ibreeze</RefSchemaName>
+      <RefTableName>sys_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="19" name="FK_Reference_10">
+      <ColNames>RID</ColNames>
+      <RefSchemaName>ibreeze</RefSchemaName>
+      <RefTableName>sys_role</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

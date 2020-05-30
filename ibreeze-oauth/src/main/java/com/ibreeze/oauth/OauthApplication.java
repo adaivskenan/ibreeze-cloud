@@ -1,0 +1,16 @@
+package com.ibreeze.oauth;
+
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tk.mybatis.spring.annotation.MapperScan;
+
+@SpringBootApplication
+@MapperScan("com.ibreeze.oauth.mapper")
+public class OauthApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(OauthApplication.class,args);
+    }
+
+}
